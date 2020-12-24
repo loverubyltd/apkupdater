@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.coroutineScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import coil.load
 import com.apkupdater.R
 import com.apkupdater.databinding.FragmentAppsBinding
 import com.apkupdater.databinding.ViewAppsBinding
@@ -18,7 +19,6 @@ import com.apkupdater.util.app.AppPrefs
 import com.apkupdater.util.observe
 import com.apkupdater.viewmodel.AppsViewModel
 import com.apkupdater.viewmodel.MainViewModel
-import com.bumptech.glide.Glide
 import com.kryptoprefs.invoke
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -64,7 +64,7 @@ class AppsFragment : Fragment() {
 			name.text = app.name
 			packageName.text = app.packageName
 			version.text = root.context.getString(R.string.version_version_code, app.version,app.versionCode)
-			Glide.with(root).load(app.iconUri).into(icon)
+			icon.load(app.iconUri)
 			actionOne.text = getString(if (app.ignored) R.string.action_unignore else R.string.action_ignore)
 			actionOne.setOnClickListener { onIgnoreClick(app) }
 			container.alpha = if (app.ignored) 0.4f else 1.0f

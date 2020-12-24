@@ -14,6 +14,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
+import coil.load
 import com.apkupdater.R
 import com.apkupdater.databinding.FragmentSearchBinding
 import com.apkupdater.databinding.ViewAppsBinding
@@ -26,9 +27,12 @@ import com.apkupdater.util.*
 import com.apkupdater.util.adapter.ViewAppsAdapter
 import com.apkupdater.util.app.AppPrefs
 import com.apkupdater.util.app.InstallUtil
+import com.apkupdater.util.getAccentColor
+import com.apkupdater.util.ifNotEmpty
+import com.apkupdater.util.ioScope
+import com.apkupdater.util.launchUrl
 import com.apkupdater.viewmodel.MainViewModel
 import com.apkupdater.viewmodel.SearchViewModel
-import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -99,7 +103,12 @@ class SearchFragment : Fragment() {
 
 	private val onBind = { itemBinding: ViewAppsBinding, app: AppSearch ->
 		itemBinding.run {
-			app.iconurl.ifNotEmpty { Glide.with(root).load(it).placeholder(ColorDrawable(Color.BLACK)).error(ColorDrawable(Color.RED)).into(icon) }
+			app.iconurl.ifNotEmpty {
+				icon.load(it) {
+					placeholder(ColorDrawable(Color.BLACK))
+					error(ColorDrawable(Color.RED))
+				}
+			}
 			name.text = app.name
 			packageName.text = app.developer
 
@@ -112,7 +121,7 @@ class SearchFragment : Fragment() {
 				actionOne.text = getString(R.string.action_install)
 				actionOne.setOnClickListener { if (app.url.endsWith("apk") || app.url == "play")  downloadAndInstall(app) else launchUrl(app.url) }
 			}
-			Glide.with(root).load(app.source).into(source)
+			source.load(app.source)
 			source.setColorFilter(root.context.getAccentColor(), PorterDuff.Mode.MULTIPLY)
 		}
 	}

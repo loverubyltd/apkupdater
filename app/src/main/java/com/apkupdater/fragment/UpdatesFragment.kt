@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
+import coil.load
 import com.apkupdater.R
 import com.apkupdater.databinding.FragmentUpdatesBinding
 import com.apkupdater.databinding.ViewAppsBinding
@@ -24,7 +25,6 @@ import com.apkupdater.util.launchUrl
 import com.apkupdater.util.observe
 import com.apkupdater.viewmodel.MainViewModel
 import com.apkupdater.viewmodel.UpdatesViewModel
-import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -64,7 +64,7 @@ class UpdatesFragment : Fragment() {
 			}
 		}
 	}
-
+	
 	private val onBind = { itemBinding: ViewAppsBinding, app: AppUpdate ->
 		itemBinding.runCatching {
 			name.text = app.name
@@ -81,8 +81,8 @@ class UpdatesFragment : Fragment() {
 				actionOne.setOnClickListener { if (app.url.endsWith("apk") || app.url == "play") downloadAndInstall(app) else launchUrl(app.url) }
 			}
 			source.setColorFilter(root.context.getAccentColor(), PorterDuff.Mode.MULTIPLY)
-			Glide.with(root).load(app.source).into(source)
-			Glide.with(root).load(iconUri(app.packageName, root.context.packageManager.getApplicationInfo(app.packageName, 0).icon)).into(icon)
+			source.load(app.source)
+			icon.load(iconUri(app.packageName, root.context.packageManager.getApplicationInfo(app.packageName, 0).icon))
 		}.onFailure { Log.e("UpdatesFragment", "onBind", it) }.let {}
 	}
 
