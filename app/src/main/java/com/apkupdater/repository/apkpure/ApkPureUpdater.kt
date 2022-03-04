@@ -58,7 +58,9 @@ class ApkPureUpdater(private val prefs: AppPrefs) : KoinComponent {
 				verInfos.add(VerInfo(variant, app.packageName))
 			}
 		} else {
-			val verInfo = VerInfo(element.select("div.ver > ul.ver-wrap > li > div.ver-info").first(), app.packageName)
+			val verElem = element.select("div.ver > ul.ver-wrap > li > div.ver-info")?.first()
+			checkNotNull(verElem) { "Version element (div.ver-info) not found." }
+			val verInfo = VerInfo(verElem, app.packageName)
 			verInfos.add(verInfo)
 		}
 	}

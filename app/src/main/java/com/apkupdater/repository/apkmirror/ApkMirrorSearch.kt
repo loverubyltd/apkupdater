@@ -22,7 +22,7 @@ class ApkMirrorSearch: KoinComponent {
 		return (0 until a.size).map {
 			AppSearch(
 				h5[it].attr("title"),
-				"$baseUrl${h5[it].selectFirst("a").attr("href")}",
+				"$baseUrl${h5[it].selectFirst("a")?.attr("href").orEmpty()}",
 				"$baseUrl${img[it].attr("src")}".replace("=32", "=64"),
 				a[it].text(),
 				source

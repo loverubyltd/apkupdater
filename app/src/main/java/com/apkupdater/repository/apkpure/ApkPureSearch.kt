@@ -18,7 +18,7 @@ class ApkPureSearch: KoinComponent {
 		val rowsWithApps = doc.select("dl")
 		return rowsWithApps.map {
 			AppSearch(
-				it.select("dd > p").first().text(),
+				it.selectFirst("dd > p")?.text().orEmpty(),
 				"$baseUrl${it.select("dd > p > a").attr("href")}",
 				it.select("dt > a > img").attr("src"),
 				it.select("dd > p")[1].select("a").text(),
