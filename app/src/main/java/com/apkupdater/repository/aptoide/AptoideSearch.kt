@@ -10,8 +10,8 @@ import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.gson.jsonBody
 import com.github.kittinunf.fuel.gson.responseObject
 import kotlinx.coroutines.async
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
 class AptoideSearch: KoinComponent {
 

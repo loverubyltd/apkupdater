@@ -33,7 +33,7 @@ import kotlinx.android.synthetic.main.view_apps.view.source
 import kotlinx.android.synthetic.main.view_apps.view.version
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
-import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class UpdatesFragment : Fragment() {
 

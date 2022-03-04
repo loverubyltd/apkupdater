@@ -10,7 +10,7 @@ import com.apkupdater.util.app.AlarmUtil
 import com.apkupdater.viewmodel.MainViewModel
 import eu.chainfire.libsuperuser.Shell
 import org.koin.android.ext.android.inject
-import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SettingsFragment : PreferenceFragmentCompat() {
 

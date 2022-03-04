@@ -13,8 +13,8 @@ import com.google.gson.Gson
 import com.kryptoprefs.invoke
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 

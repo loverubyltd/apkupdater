@@ -9,8 +9,8 @@ import com.apkupdater.util.app.AppPrefs
 import com.apkupdater.util.app.NotificationUtil
 import com.kryptoprefs.invoke
 import kotlinx.coroutines.runBlocking
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
 class AlarmReceiver : BroadcastReceiver(), KoinComponent {
 

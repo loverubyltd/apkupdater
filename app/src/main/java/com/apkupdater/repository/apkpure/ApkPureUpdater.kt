@@ -16,7 +16,7 @@ import kotlinx.coroutines.sync.withLock
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
-import org.koin.core.KoinComponent
+import org.koin.core.component.KoinComponent
 
 class ApkPureUpdater(private val prefs: AppPrefs) : KoinComponent {
 

@@ -30,7 +30,7 @@ import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.activity_main.swipe_layout
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 

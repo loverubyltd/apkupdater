@@ -19,8 +19,8 @@ import com.google.gson.Gson
 import com.google.gson.stream.JsonReader
 import com.kryptoprefs.invoke
 import kotlinx.coroutines.async
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import java.io.File
 import java.io.InputStreamReader
 import java.util.jar.JarFile

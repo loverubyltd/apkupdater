@@ -5,7 +5,7 @@ import com.apkupdater.model.ui.AppSearch
 import com.apkupdater.util.ioScope
 import kotlinx.coroutines.async
 import org.jsoup.Jsoup
-import org.koin.core.KoinComponent
+import org.koin.core.component.KoinComponent
 
 class ApkPureSearch: KoinComponent {
 

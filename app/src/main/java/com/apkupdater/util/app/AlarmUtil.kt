@@ -5,7 +5,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import com.apkupdater.receiver.AlarmReceiver
-import org.koin.core.KoinComponent
+import org.koin.core.component.KoinComponent
 import java.util.Calendar
 
 class AlarmUtil(private val context: Context, private val prefs: AppPrefs): KoinComponent {

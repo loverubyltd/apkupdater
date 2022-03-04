@@ -22,7 +22,7 @@ class ApkUpdaterApplication : MultiDexApplication() {
 	}
 
 	private fun initKoin() = startKoin{
-		androidLogger()
+        androidLogger()
 		androidContext(this@ApkUpdaterApplication)
 		modules(mainModule)
 	}

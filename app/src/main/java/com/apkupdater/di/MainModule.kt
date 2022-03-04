@@ -21,7 +21,7 @@ import com.apkupdater.viewmodel.SearchViewModel
 import com.apkupdater.viewmodel.UpdatesViewModel
 import com.kryptoprefs.preferences.KryptoBuilder
 import org.koin.android.ext.koin.androidContext
-import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val mainModule = module {

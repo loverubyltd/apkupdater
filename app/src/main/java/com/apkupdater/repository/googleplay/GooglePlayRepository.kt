@@ -17,8 +17,8 @@ import com.dragons.aurora.playstoreapiv2.GooglePlayAPI
 import com.dragons.aurora.playstoreapiv2.PlayStoreApiBuilder
 import com.dragons.aurora.playstoreapiv2.SearchIterator
 import kotlinx.coroutines.async
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
 @Suppress("BlockingMethodInNonBlockingContext")
 class GooglePlayRepository: KoinComponent {

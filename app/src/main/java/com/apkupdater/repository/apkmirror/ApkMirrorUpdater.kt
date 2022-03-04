@@ -18,7 +18,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import org.koin.core.KoinComponent
+import org.koin.core.component.KoinComponent
 import java.util.*
 
 class ApkMirrorUpdater(private val prefs: AppPrefs): KoinComponent {
