@@ -92,9 +92,9 @@ class ApkMirrorUpdater(private val prefs: AppPrefs): KoinComponent {
 	}
 
 	private fun minApiToInt(api: String): Int = when {
-		api.toLowerCase(Locale.US) == "q" -> 29
-		api.toLowerCase(Locale.US) == "p" -> 28
-		api.toLowerCase(Locale.US) == "o" -> 26
+		api.lowercase(Locale.US) == "q" -> 29
+		api.lowercase(Locale.US) == "p" -> 28
+		api.lowercase(Locale.US) == "o" -> 26
 		else -> api.toIntOrNull() ?: 0
 	}
 
