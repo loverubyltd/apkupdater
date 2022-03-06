@@ -17,15 +17,16 @@ class ApkUpdaterApplication : MultiDexApplication() {
 	override fun attachBaseContext(base: Context?) {
 		super.attachBaseContext(base)
 
-		initAcra {
-			buildConfigClass = BuildConfig::class.java
-			reportFormat = StringFormat.JSON
-
-			httpSender {
-				httpMethod = HttpSender.Method.POST
-				uri = "https://collector.tracepot.com/8ead3e03"
-			}
-		}
+//		initAcra {
+//			enabled = false
+//			buildConfigClass = BuildConfig::class.java
+//			reportFormat = StringFormat.JSON
+//
+//			httpSender {
+//				httpMethod = HttpSender.Method.POST
+//				uri = "https://collector.tracepot.com/8ead3e03"
+//			}
+//		}
 	}
 
 	override fun onCreate() {

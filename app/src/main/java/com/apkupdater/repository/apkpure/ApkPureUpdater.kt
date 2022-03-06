@@ -1,6 +1,7 @@
 package com.apkupdater.repository.apkpure
 
 import android.os.Build
+import android.util.Log
 import com.apkupdater.R
 import com.apkupdater.model.apkpure.VerInfo
 import com.apkupdater.model.ui.AppInstalled
@@ -67,7 +68,12 @@ class ApkPureUpdater(private val prefs: AppPrefs) : KoinComponent {
 
 	private fun crawlUpdates(verInfos: MutableList<VerInfo>, app: AppInstalled) {
 		getApkPackageLink(app.packageName).ifNotEmpty { packageLink ->
+			Log.d("APKPURE", app.packageName)
 			val (gotVersionsPage, element) = resolveVersionsPage(packageLink)
+			Log.d("APKPURE", gotVersionsPage.toString())
+			Log.d("APKPURE", element.toString())
+
+
 			if (gotVersionsPage) {
 				crawlVersionsPage(element, verInfos, app)
 			}
@@ -81,6 +87,7 @@ class ApkPureUpdater(private val prefs: AppPrefs) : KoinComponent {
 		val mutex = Mutex()
 
 		apps.forEach { app ->
+			Log.d("lAPKPURE", "aunching: " + app.packageName)
 			launch {
 				crawlUpdates(verInfos, app)
 			}.let { mutex.withLock { jobs.add(it) } }

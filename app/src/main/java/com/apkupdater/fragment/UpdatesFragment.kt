@@ -64,7 +64,7 @@ class UpdatesFragment : Fragment() {
 			}
 		}
 	}
-	
+
 	private val onBind = { itemBinding: ViewAppsBinding, app: AppUpdate ->
 		itemBinding.runCatching {
 			name.text = app.name

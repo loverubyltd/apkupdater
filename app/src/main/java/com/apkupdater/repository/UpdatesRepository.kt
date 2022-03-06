@@ -2,6 +2,7 @@ package com.apkupdater.repository
 
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.util.Log
 import com.apkupdater.model.ui.AppUpdate
 import com.apkupdater.repository.apkmirror.ApkMirrorUpdater
 import com.apkupdater.repository.apkpure.ApkPureUpdater
@@ -33,6 +34,7 @@ class UpdatesRepository: KoinComponent {
 		val errors = mutableListOf<Throwable>()
 
 		val apps = appsRepository.getPackageInfosFiltered(PackageManager.GET_SIGNATURES)
+		Log.d("APPS COUNUT", apps.count().toString())
 		val installedApps = appsRepository.getAppsFiltered(apps)
 
 		val googlePlay = if (prefs.settings.googlePlay) googlePlayRepository.updateAsync(installedApps) else null
