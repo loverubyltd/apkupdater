@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.properties.Delegates
 
-class BindAdapter<T: Id>(@LayoutRes private val id: Int, private val onBind: (View, T) -> Unit) : RecyclerView.Adapter<BindAdapter<T>.ViewHolder>() {
+open class BindAdapter<T: Id>(@LayoutRes private val id: Int, private val doBind: (View, T) -> Unit) : RecyclerView.Adapter<BindAdapter<T>.ViewHolder>() {
 
 	var items: List<T> by Delegates.observable(emptyList()) { _, old, new -> diff(old, new) { o, n -> o.id == n.id } }
 
@@ -23,6 +23,6 @@ class BindAdapter<T: Id>(@LayoutRes private val id: Int, private val onBind: (Vi
 		override fun getNewListSize() = new.size
 	}).dispatchUpdatesTo(this)
 
-	inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) { fun bind(app: T) = onBind(itemView, app) }
+	inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) { fun bind(app: T) = doBind(itemView, app) }
 
 }
