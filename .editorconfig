@@ -10,6 +10,14 @@ insert_final_newline = true
 max_line_length = 100
 trim_trailing_whitespace = true
 
+# Maintain legacy style
+[*.kt]
+indent_style = tab
+
+# Maintain legacy style
+[*.xml]
+indent_style = tab
+
 [*.md]
 trim_trailing_whitespace = false
 
